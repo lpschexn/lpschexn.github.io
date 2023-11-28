@@ -4,15 +4,14 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+Hello! I'm Logan Schexnaydre, a Computer Engineering PhD student at Michigan Tech. My research focus is on autonomous vehicles using perception systems to increase the energy efficiency of vehicles in platoons.
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
+# Publications
+Logan Schexnaydre, Aman Poovalappil, Mark Schmelzle, Darrell Robinette, Jeremy P. Bos, "Using automated vehicle positioning to improve efficiency in vehicle platooning," Proc. SPIE 12540, Autonomous Systems: Sensors, Processing, and Security for Ground, Air, Sea, and Space Vehicles and Infrastructure 2023, 125400O (13 June 2023); [https://doi.org/10.1117/12.2664430][https://doi.org/10.1117/12.2664430]
 
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
+# Educational Experience
+
+# Work Experience
 
 
-[jekyll-organization]: https://github.com/jekyll
+[https://doi.org/10.1117/12.2664430]: https://doi.org/10.1117/12.2664430
