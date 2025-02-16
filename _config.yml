@@ -24,7 +24,7 @@ author:
   # Biographic information
   avatar           : "me.png"
   name             : "Logan Schexnaydre"
-  pronouns         : example: "he/him"  
+  pronouns         : "he/him"  
   bio              : "Short biography for the left-hand sidebar"
   location         : "Houghton, MI"
   employer         : "Michigan Technological University"
