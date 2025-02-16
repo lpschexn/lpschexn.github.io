@@ -22,7 +22,7 @@ repository               : "lpschexn/lpschexn.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile.png"
+  avatar           : "me.png"
   name             : "Logan Schexnaydre"
   pronouns         : example: "he/him"  
   bio              : "Short biography for the left-hand sidebar"
