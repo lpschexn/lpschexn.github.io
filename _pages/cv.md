@@ -11,9 +11,8 @@ redirect_from:
 
 Education
 ======
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
-* M.S. in Jekyll, GitHub University, 2014
-* B.S. in GitHub, GitHub University, 2012
+* PhD in Computer Engineering, Michigan Technological University, In Progress
+* B.S. in Electrical and Computer Enigneeirng, Michigan Technological University, 2021
 
 Work experience
 ======
