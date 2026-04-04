@@ -128,7 +128,22 @@ Drop image files into the `images/` folder, then reference them as `"images/file
 
 ### Running locally
 
+If `bundle` is not found, install bundler first:
+
 ```bash
+gem install bundler
+```
+
+You may also need to add the gem bin directory to your PATH (the `gem install` output will show the path if so):
+
+```bash
+export PATH="$HOME/.local/share/gem/ruby/3.4.0/bin:$PATH"
+```
+
+Then install dependencies and start the server:
+
+```bash
+bundle install
 bundle exec jekyll serve -l -H localhost
 ```
 

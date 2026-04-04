@@ -63,14 +63,21 @@ publications:
   heading: "Selected Works"
   scholar_url: "https://scholar.google.com/citations?user=tPcoJDkAAAAJ"
   items:
+    - title: "Modeling the Effects of Residual Snow Clutter on Position Estimation and Vehicle Energy Efficiency"
+      authors: "<strong>L. Schexnaydre</strong>, I.Q. Mattson, C. Cornwall, J. P. Bos"
+      venue: "<strong>Submitted to</strong> IEEE International Workshop on Metrology for Automotive (MetroAutomotive)"
+      year: 2026
+      link: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=tPcoJDkAAAAJ&citation_for_view=tPcoJDkAAAAJ:u-x6o8ySG0sC"
+      badges:
+#        - first
+
     - title: "A Comparison of Road Grade Preview Signals from Lidar and Maps"
       authors: "<strong>L. Schexnaydre</strong>, A. Poovalappil, D. Robinette, J. Bos"
       venue: "arXiv preprint arXiv:2511.02006"
       year: 2025
-      link: "https://arxiv.org/abs/2511.02006"
+      link: "<strong>Accepted to SAE WCX</strong>https://arxiv.org/abs/2511.02006"
       badges:
-        - first
-        - Accepted to SAE WCX
+#        - first
 
     - title: "Using Automated Vehicle Positioning to Improve Efficiency in Vehicle Platooning"
       authors: "<strong>L. Schexnaydre</strong>, A. Poovalappil, M. Schmelzle, D. Robinette, J.P. Bos"
@@ -78,7 +85,7 @@ publications:
       year: 2023
       link: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=tPcoJDkAAAAJ&citation_for_view=tPcoJDkAAAAJ:u5HHmVD_uO8C"
       badges:
-        - first
+#        - first
 
     - title: "On-Road Investigation of Energy Saving Opportunity for Autonomous Light-Duty Vehicles through Automated Vehicle-Following in Safe Distance Scenarios"
       authors: "A. Poovalappil, A. Robare, <strong>L. Schexnaydre</strong>, P. Santhosh, M. Bahramgiri, et al."
@@ -86,11 +93,11 @@ publications:
       year: 2025
       link: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=tPcoJDkAAAAJ&citation_for_view=tPcoJDkAAAAJ:d1gkVwhDpl0C"
 
-    - title: "Red vs Infrared: Comparing 900&thinsp;nm and 1550&thinsp;nm Lidar Performance in Arctic Winter Conditions"
-      authors: "I.Q. Mattson, <strong>L. Schexnaydre</strong>, J.P. Bos"
-      venue: "Proc. SPIE — Laser Communication and Propagation through the Atmosphere and Oceans XIV"
-      year: 2025
-      link: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=tPcoJDkAAAAJ&citation_for_view=tPcoJDkAAAAJ:9yKSN-GCB0IC"
+#    - title: "Red vs Infrared: Comparing 900&thinsp;nm and 1550&thinsp;nm Lidar Performance in Arctic Winter Conditions"
+#      authors: "I.Q. Mattson, <strong>L. Schexnaydre</strong>, J.P. Bos"
+#      venue: "Proc. SPIE — Laser Communication and Propagation through the Atmosphere and Oceans XIV"
+#      year: 2025
+#      link: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=tPcoJDkAAAAJ&citation_for_view=tPcoJDkAAAAJ:9yKSN-GCB0IC"
 
     - title: "Facilitating Project-Based Learning through Application of Established Pedagogical Methods in the SAE AutoDrive Challenge Student Design Competition"
       authors: "M.H. Schmelzle, <strong>L. Schexnaydre</strong>, N. Spike, D. Robinette, J. Bos"
