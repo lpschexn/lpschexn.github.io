@@ -1,3 +1,141 @@
+# lpschexn.github.io
+
+Personal academic website for Logan Schexnaydre.
+
+## Editing homepage content
+
+Almost everything visible on the homepage is controlled by a single file:
+
+**`_data/content.yml`**
+
+Edit that file, commit, and push — GitHub Pages rebuilds automatically (usually within ~1 minute).
+
+### Hero (name, title, institution)
+
+```yaml
+hero:
+  name: "Logan Schexnaydre"
+  pronouns: "(he/him)"
+  title: "PhD Candidate"
+  keywords: "Stochastic Modeling &middot; Autonomous Sensing &middot; Sustainable Computing"
+  institution: "Michigan Technological University"
+  department: "Dept. of Electrical &amp; Computer Engineering"
+  graduation: "Graduating Summer 2026"
+  email: "lpschexn@mtu.edu"
+```
+
+`keywords` appears as plain text below the title and above the institution line.  
+Use `&middot;` for the dot separator ( · ).
+
+### Gallery (photo carousel)
+
+```yaml
+gallery:
+  photos:
+    - src: "images/my-photo.jpg"
+      alt: "Description for screen readers"
+      caption: "Optional caption shown on the photo"   # omit to hide
+      link: "https://example.com"                      # omit for no link
+```
+
+Place images in the `images/` folder. Add or remove items freely — the carousel appears only when at least one photo is listed.
+
+### Research section
+
+```yaml
+research:
+  heading: "What I Work On"
+  paragraphs:
+    - >-
+      First paragraph text...
+    - >-
+      Second paragraph text...
+  keywords:
+    - "Lidar Processing"
+    - "Autonomous Vehicles"
+```
+
+Add or remove paragraphs and keywords freely.
+
+### Publications (Selected Works)
+
+```yaml
+publications:
+  heading: "Selected Works"
+  scholar_url: "https://scholar.google.com/..."   # omit to hide the footer link
+  items:
+    - title: "Paper title"
+      authors: "<strong>L. Schexnaydre</strong>, A. Coauthor"
+      venue: "Journal or conference name"
+      year: 2025
+      link: "https://doi.org/..."
+      badges:           # optional
+        - first         # renders blue "First Author" pill
+        - preprint      # renders plain pill with that text
+```
+
+Wrap your own name in `<strong>...</strong>` to bold it in the author list.
+
+### Projects
+
+```yaml
+projects:
+  heading: "Research &amp; Initiatives"
+  items:
+    - name: "Project name"
+      image: "images/my-image.jpg"    # optional
+      image_alt: "Alt text"           # optional, defaults to project name
+      desc: >-
+        Description text.
+      link: "https://example.com"
+      link_text: "Visit project"
+```
+
+Omit `image` to show a generic placeholder. Add or remove items freely.
+
+### Research Vision
+
+```yaml
+vision:
+  heading: "Research Vision"
+  paragraphs:
+    - >-
+      Paragraph text...
+  tags:
+    - "Postdoctoral positions"
+```
+
+### Contact tagline
+
+```yaml
+contact:
+  tagline: >-
+    Short message shown above the email button.
+```
+
+### Footer
+
+```yaml
+footer:
+  copyright: "&copy; 2026 Logan Schexnaydre"
+```
+
+---
+
+### Adding images
+
+Drop image files into the `images/` folder, then reference them as `"images/filename.jpg"` in `content.yml`.
+
+### Running locally
+
+```bash
+bundle exec jekyll serve -l -H localhost
+```
+
+Site serves at `http://localhost:4000`. Live-reloads on file changes (except `_config.yml`).
+
+---
+
 # Academic Pages
 **Academic Pages is a GitHub Pages template for personal and professional portfolio-oriented websites.**
 

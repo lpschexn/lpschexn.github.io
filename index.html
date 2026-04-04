@@ -427,13 +427,12 @@ layout: none
       border-radius: var(--radius);
       overflow: hidden;
       box-shadow: var(--shadow);
-      transition: box-shadow var(--transition), transform var(--transition), border-color var(--transition);
+      transition: box-shadow var(--transition), border-color var(--transition);
       display: flex;
       flex-direction: column;
     }
     .project-card:hover {
-      box-shadow: var(--shadow-lg);
-      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(0,0,0,.13), 0 16px 48px rgba(0,0,0,.09);
       border-color: color-mix(in srgb, var(--accent) 30%, var(--border));
     }
     .project-img-wrap {
@@ -447,22 +446,16 @@ layout: none
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.4s ease;
+      image-rendering: high-quality;
+      image-rendering: -webkit-optimize-contrast;
     }
-    .project-card:hover .project-img-wrap img { transform: scale(1.03); }
     .project-placeholder {
       width: 100%;
       height: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 2.5rem;
-    }
-    .placeholder-lidar {
       background: linear-gradient(135deg, #1e3a5f 0%, #1a4a80 50%, #0f2744 100%);
-    }
-    .placeholder-arctic {
-      background: linear-gradient(135deg, #1e4d6b 0%, #2a6987 50%, #0d3347 100%);
     }
     .project-body { padding: 1.2rem 1.3rem; flex: 1; display: flex; flex-direction: column; }
     .project-name {
@@ -560,6 +553,93 @@ layout: none
       opacity: 0.6;
     }
 
+    /* ─── Gallery carousel ─── */
+    #gallery {
+      background: var(--bg-alt);
+      padding: 0;
+      overflow: hidden;
+    }
+    .gallery-carousel {
+      position: relative;
+      width: 100%;
+      max-height: 520px;
+      overflow: hidden;
+      background: #000;
+    }
+    .gallery-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 0.7s ease;
+      pointer-events: none;
+    }
+    .gallery-slide.active {
+      opacity: 1;
+      position: relative;
+      pointer-events: auto;
+    }
+    .gallery-slide img {
+      width: 100%;
+      max-height: 520px;
+      object-fit: cover;
+      display: block;
+    }
+    .gallery-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 0.6rem 1.2rem;
+      background: linear-gradient(transparent, rgba(0,0,0,0.55));
+      color: #fff;
+      font-size: 0.85rem;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+    }
+    .gallery-caption:empty { display: none; }
+    .gallery-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+      background: rgba(0,0,0,0.35);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s;
+      backdrop-filter: blur(4px);
+    }
+    .gallery-btn:hover { background: rgba(0,0,0,0.6); }
+    .gallery-btn-prev { left: 1rem; }
+    .gallery-btn-next { right: 1rem; }
+    .gallery-dots {
+      display: flex;
+      justify-content: center;
+      gap: 0.45rem;
+      padding: 0.75rem 0;
+      background: var(--bg-alt);
+    }
+    .gallery-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--border);
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      padding: 0;
+    }
+    .gallery-dot.active {
+      background: var(--accent);
+      transform: scale(1.25);
+    }
+
     /* ─── Scroll-reveal ─── */
     .reveal {
       opacity: 0;
@@ -642,6 +722,41 @@ layout: none
     </div>
   </section>
 
+  <!-- ══════════════ GALLERY ══════════════ -->
+  {% if site.data.content.gallery.photos.size > 0 %}
+  <section id="gallery" aria-label="{{ site.data.content.gallery.heading }}">
+    <div class="gallery-carousel" id="gallery-carousel">
+      {% for photo in site.data.content.gallery.photos %}
+      <div class="gallery-slide{% if forloop.first %} active{% endif %}" role="img" aria-label="{{ photo.alt }}">
+        {% if photo.link %}
+        <a href="{{ photo.link }}" target="_blank" rel="noopener">
+          <img src="{{ photo.src }}" alt="{{ photo.alt }}" loading="lazy" />
+        </a>
+        {% else %}
+        <img src="{{ photo.src }}" alt="{{ photo.alt }}" loading="lazy" />
+        {% endif %}
+        <div class="gallery-caption">{{ photo.caption }}</div>
+      </div>
+      {% endfor %}
+      {% if site.data.content.gallery.photos.size > 1 %}
+      <button class="gallery-btn gallery-btn-prev" aria-label="Previous photo">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <button class="gallery-btn gallery-btn-next" aria-label="Next photo">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+      {% endif %}
+    </div>
+    {% if site.data.content.gallery.photos.size > 1 %}
+    <div class="gallery-dots" role="tablist" aria-label="Gallery navigation">
+      {% for photo in site.data.content.gallery.photos %}
+      <button class="gallery-dot{% if forloop.first %} active{% endif %}" role="tab" aria-label="Photo {{ forloop.index }}" data-index="{{ forloop.index0 }}"></button>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </section>
+  {% endif %}
+
   <!-- ══════════════ RESEARCH STATEMENT ══════════════ -->
   <section id="research" aria-labelledby="research-heading">
     <div class="container reveal">
@@ -665,107 +780,36 @@ layout: none
   <section id="publications" aria-labelledby="pubs-heading">
     <div class="container reveal">
       <p class="section-label">Publications</p>
-      <h2 class="section-title" id="pubs-heading">Selected Works</h2>
+      <h2 class="section-title" id="pubs-heading">{{ site.data.content.publications.heading }}</h2>
       <div class="section-divider" aria-hidden="true"></div>
       <div class="pub-list">
-
-        <!-- [1] -->
+        {% for pub in site.data.content.publications.items %}
         <article class="pub-card">
           <div class="pub-main">
             <h3 class="pub-title">
-              <a href="https://arxiv.org/abs/2511.02006" target="_blank" rel="noopener">
-                A Comparison of Road Grade Preview Signals from Lidar and Maps
-              </a>
+              <a href="{{ pub.link }}" target="_blank" rel="noopener">{{ pub.title }}</a>
             </h3>
-            <p class="pub-authors">
-              <strong>L. Schexnaydre</strong>, A. Poovalappil, D. Robinette, J. Bos
-            </p>
-            <p class="pub-venue">arXiv preprint arXiv:2511.02006</p>
+            <p class="pub-authors">{{ pub.authors }}</p>
+            <p class="pub-venue">{{ pub.venue }}</p>
           </div>
           <div class="pub-badges">
-            <span class="badge badge-first">First Author &middot; Preprint</span>
-            <span class="badge badge-year">2025</span>
+            {% for badge in pub.badges %}
+              {% if badge == "first" %}
+              <span class="badge badge-first">First Author</span>
+              {% else %}
+              <span class="badge badge-year">{{ badge }}</span>
+              {% endif %}
+            {% endfor %}
+            <span class="badge badge-year">{{ pub.year }}</span>
           </div>
         </article>
-
-        <!-- [4] listed second because also first-author -->
-        <article class="pub-card">
-          <div class="pub-main">
-            <h3 class="pub-title">
-              <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=tPcoJDkAAAAJ&citation_for_view=tPcoJDkAAAAJ:u5HHmVD_uO8C" target="_blank" rel="noopener">
-                Using Automated Vehicle Positioning to Improve Efficiency in Vehicle Platooning
-              </a>
-            </h3>
-            <p class="pub-authors">
-              <strong>L. Schexnaydre</strong>, A. Poovalappil, M. Schmelzle, D. Robinette, J.P. Bos
-            </p>
-            <p class="pub-venue">Proc. SPIE — Autonomous Systems: Sensors, Processing, and Security for Ground, Air, Sea, and Space Vehicles and Infrastructure</p>
-          </div>
-          <div class="pub-badges">
-            <span class="badge badge-first">First Author</span>
-            <span class="badge badge-year">2023</span>
-          </div>
-        </article>
-
-        <!-- [2] -->
-        <article class="pub-card">
-          <div class="pub-main">
-            <h3 class="pub-title">
-              <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=tPcoJDkAAAAJ&citation_for_view=tPcoJDkAAAAJ:d1gkVwhDpl0C" target="_blank" rel="noopener">
-                On-Road Investigation of Energy Saving Opportunity for Autonomous Light-Duty Vehicles through Automated Vehicle-Following in Safe Distance Scenarios
-              </a>
-            </h3>
-            <p class="pub-authors">
-              A. Poovalappil, A. Robare, <strong>L. Schexnaydre</strong>, P. Santhosh, M. Bahramgiri, et al.
-            </p>
-            <p class="pub-venue">SAE Technical Paper</p>
-          </div>
-          <div class="pub-badges">
-            <span class="badge badge-year">2025</span>
-          </div>
-        </article>
-
-        <!-- [3] -->
-        <article class="pub-card">
-          <div class="pub-main">
-            <h3 class="pub-title">
-              <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=tPcoJDkAAAAJ&citation_for_view=tPcoJDkAAAAJ:9yKSN-GCB0IC" target="_blank" rel="noopener">
-                Red vs Infrared: Comparing 900&thinsp;nm and 1550&thinsp;nm Lidar Performance in Arctic Winter Conditions
-              </a>
-            </h3>
-            <p class="pub-authors">
-              I.Q. Mattson, <strong>L. Schexnaydre</strong>, J.P. Bos
-            </p>
-            <p class="pub-venue">Proc. SPIE — Laser Communication and Propagation through the Atmosphere and Oceans XIV</p>
-          </div>
-          <div class="pub-badges">
-            <span class="badge badge-year">2025</span>
-          </div>
-        </article>
-
-        <!-- [5] -->
-        <article class="pub-card">
-          <div class="pub-main">
-            <h3 class="pub-title">
-              <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=tPcoJDkAAAAJ&citation_for_view=tPcoJDkAAAAJ:u-x6o8ySG0sC" target="_blank" rel="noopener">
-                Facilitating Project-Based Learning through Application of Established Pedagogical Methods in the SAE AutoDrive Challenge Student Design Competition
-              </a>
-            </h3>
-            <p class="pub-authors">
-              M.H. Schmelzle, <strong>L. Schexnaydre</strong>, N. Spike, D. Robinette, J. Bos
-            </p>
-            <p class="pub-venue">SAE Technical Paper</p>
-          </div>
-          <div class="pub-badges">
-            <span class="badge badge-year">2024</span>
-          </div>
-        </article>
-
+        {% endfor %}
       </div>
+      {% if site.data.content.publications.scholar_url %}
       <p style="margin-top:1.2rem; font-size:0.85rem; color:var(--text-subtle);">
-        Full list on
-        <a href="https://scholar.google.com/citations?user=tPcoJDkAAAAJ" target="_blank" rel="noopener">Google Scholar</a>.
+        Full list on <a href="{{ site.data.content.publications.scholar_url }}" target="_blank" rel="noopener">Google Scholar</a>.
       </p>
+      {% endif %}
     </div>
   </section>
 
@@ -776,76 +820,27 @@ layout: none
       <h2 class="section-title" id="projects-heading">{{ site.data.content.projects.heading }}</h2>
       <div class="section-divider" aria-hidden="true"></div>
       <div class="project-grid">
-
-        <!-- Project 1: ADII -->
+        {% for item in site.data.content.projects.items %}
         <article class="project-card">
           <div class="project-img-wrap">
-            <img src="images/ADII_banner.png" alt="Autonomous Driving Intelligence Initiative banner" loading="lazy" />
-          </div>
-          <div class="project-body">
-            <h3 class="project-name">{{ site.data.content.projects.items[0].name }}</h3>
-            <p class="project-desc">{{ site.data.content.projects.items[0].desc }}</p>
-            <a href="{{ site.data.content.projects.items[0].link }}" class="project-link" target="_blank" rel="noopener">
-              {{ site.data.content.projects.items[0].link_text }}
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-            </a>
-          </div>
-        </article>
-
-        <!-- Project 2: Road Grade -->
-        <article class="project-card">
-          <div class="project-img-wrap">
-            <div class="project-placeholder placeholder-lidar" aria-label="Lidar road grade preview illustration">
-              <!-- lidar / waveform icon -->
-              <svg width="52" height="52" viewBox="0 0 48 48" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <circle cx="24" cy="28" r="5"/>
-                <line x1="24" y1="4" x2="24" y2="12"/>
-                <path d="M8 28 Q12 16 24 23"/>
-                <path d="M40 28 Q36 16 24 23"/>
-                <path d="M4 36 Q10 28 18 32"/>
-                <path d="M44 36 Q38 28 30 32"/>
-                <path d="M6 42 Q14 34 24 38 Q34 34 42 42" stroke-dasharray="3 2"/>
-              </svg>
+            {% if item.image %}
+            <img src="{{ item.image }}" alt="{{ item.image_alt | default: item.name }}" loading="lazy" />
+            {% else %}
+            <div class="project-placeholder" aria-hidden="true">
+              <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="10" width="36" height="28" rx="3"/><circle cx="17" cy="21" r="4"/><path d="M6 34 l10-10 7 7 5-5 14 12"/></svg>
             </div>
+            {% endif %}
           </div>
           <div class="project-body">
-            <h3 class="project-name">{{ site.data.content.projects.items[1].name }}</h3>
-            <p class="project-desc">{{ site.data.content.projects.items[1].desc }}</p>
-            <a href="{{ site.data.content.projects.items[1].link }}" class="project-link" target="_blank" rel="noopener">
-              {{ site.data.content.projects.items[1].link_text }}
+            <h3 class="project-name">{{ item.name }}</h3>
+            <p class="project-desc">{{ item.desc }}</p>
+            <a href="{{ item.link }}" class="project-link" target="_blank" rel="noopener">
+              {{ item.link_text }}
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </a>
           </div>
         </article>
-
-        <!-- Project 3: Arctic Lidar -->
-        <article class="project-card">
-          <div class="project-img-wrap">
-            <div class="project-placeholder placeholder-arctic" aria-label="Arctic lidar study illustration">
-              <!-- snowflake-like icon -->
-              <svg width="52" height="52" viewBox="0 0 48 48" fill="none" stroke="rgba(200,235,255,0.8)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <line x1="24" y1="4" x2="24" y2="44"/>
-                <line x1="4" y1="24" x2="44" y2="24"/>
-                <line x1="10" y1="10" x2="38" y2="38"/>
-                <line x1="38" y1="10" x2="10" y2="38"/>
-                <circle cx="24" cy="24" r="4" fill="rgba(200,235,255,0.4)" stroke="rgba(200,235,255,0.8)"/>
-                <line x1="24" y1="4" x2="20" y2="9"/><line x1="24" y1="4" x2="28" y2="9"/>
-                <line x1="24" y1="44" x2="20" y2="39"/><line x1="24" y1="44" x2="28" y2="39"/>
-                <line x1="4" y1="24" x2="9" y2="20"/><line x1="4" y1="24" x2="9" y2="28"/>
-                <line x1="44" y1="24" x2="39" y2="20"/><line x1="44" y1="24" x2="39" y2="28"/>
-              </svg>
-            </div>
-          </div>
-          <div class="project-body">
-            <h3 class="project-name">{{ site.data.content.projects.items[2].name }}</h3>
-            <p class="project-desc">{{ site.data.content.projects.items[2].desc }}</p>
-            <a href="{{ site.data.content.projects.items[2].link }}" class="project-link" target="_blank" rel="noopener">
-              {{ site.data.content.projects.items[2].link_text }}
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-            </a>
-          </div>
-        </article>
-
+        {% endfor %}
       </div>
     </div>
   </section>
@@ -935,6 +930,42 @@ layout: none
     btn.addEventListener('click', () => {
       setTheme(html.getAttribute('data-theme') !== 'dark');
     });
+
+    // ── Gallery carousel ──
+    (function() {
+      const carousel = document.getElementById('gallery-carousel');
+      if (!carousel) return;
+      const slides = carousel.querySelectorAll('.gallery-slide');
+      if (slides.length < 2) return;
+      const dots = document.querySelectorAll('.gallery-dot');
+      let current = 0;
+      let timer;
+
+      function goTo(n) {
+        slides[current].classList.remove('active');
+        dots[current]?.classList.remove('active');
+        current = (n + slides.length) % slides.length;
+        slides[current].classList.add('active');
+        dots[current]?.classList.add('active');
+      }
+
+      function next() { goTo(current + 1); }
+      function prev() { goTo(current - 1); }
+
+      function startAuto() { timer = setInterval(next, 4500); }
+      function stopAuto()  { clearInterval(timer); }
+
+      carousel.querySelector('.gallery-btn-prev')?.addEventListener('click', () => { stopAuto(); prev(); startAuto(); });
+      carousel.querySelector('.gallery-btn-next')?.addEventListener('click', () => { stopAuto(); next(); startAuto(); });
+      dots.forEach(dot => dot.addEventListener('click', () => {
+        stopAuto(); goTo(+dot.dataset.index); startAuto();
+      }));
+
+      carousel.addEventListener('mouseenter', stopAuto);
+      carousel.addEventListener('mouseleave', startAuto);
+
+      startAuto();
+    })();
 
     // ── Scroll reveal ──
     const revealEls = document.querySelectorAll('.reveal');

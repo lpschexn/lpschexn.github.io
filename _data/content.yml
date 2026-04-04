@@ -17,6 +17,15 @@ hero:
   graduation: "Graduating Summer 2026"
   email: "lpschexn@mtu.edu"
 
+# ── Gallery section ───────────────────────────────────────────────────────────
+gallery:
+  heading: "Field &amp; Lab"
+  photos:
+    - src: "images/adii_car_fall.jpg"
+      alt: "AutoDrive Challenge II Car"
+      caption: "AutoDrive Challenge II - Fall Vehicle Testing"
+      link: "https://rse-mtu.vercel.app/"
+
 # ── Research section ──────────────────────────────────────────────────────────
 research:
   heading: "What I Work On"
@@ -24,17 +33,13 @@ research:
     - >-
       Autonomous vehicles have the potential to reduce transportation energy consumption
       through more efficient driving. Yet, achieving those gains require sensing that is
-      precise in highway driving scenarios and all weather conditions. My research focuses
-      on evaluating the ability for lidar sensing and processing systems to achieve significant
-      energy savings, a benefit to the driver and to the national energy infrastructure.
+      precise in dynamic driving and weather scenarios. My dissertation work focuses on evaluating 
+      lidar sensing and processing systems in these scenarios. Understanding the effect of these sensing architectures
+      enables engineers to make informed decisions about their autonomous vehicle's fuel economy.
     - >-
-      Concretely, I investigate how lidar-derived road grade previews can replace or
-      augment map-based inputs to vehicle energy management systems, and I have evaluated
-      900&nbsp;nm versus 1550&nbsp;nm lidar performance under real arctic winter conditions
-      — the kind of empirical, hardware-grounded work that bridges sensor physics and
-      system-level autonomy. These studies are conducted on public roads and test tracks
-      in the Upper Peninsula of Michigan, where the environment provides natural stress
-      tests unavailable in warmer climates.
+      I have implemented stochastic models to connect measurement and estimation uncertainty of 
+      lidar and processing algorithms the energy saved during automated vehicle following in clear
+      and adverse weather while under computational constraints.
     - >-
       The larger goal is a class of autonomous vehicles that are not just capable but
       measurably more sustainable: systems that preview road geometry to minimize
@@ -47,17 +52,69 @@ research:
   keywords:
     - "Lidar Processing"
     - "Autonomous Vehicles"
-    - "Vehicle Platooning"
+    - "Stochastic Modeling"
     - "Energy Efficiency"
     - "Sensor Fusion"
     - "Arctic Sensing"
-    - "Road Grade Estimation"
+
+# ── Publications section ──────────────────────────────────────────────────────
+# badges: optional list of labels shown on the card.
+#   Use "first" for the blue "First Author" pill, or any text for a plain pill.
+#   The year is always shown automatically from the `year` field.
+publications:
+  heading: "Selected Works"
+  scholar_url: "https://scholar.google.com/citations?user=tPcoJDkAAAAJ"
+  items:
+    - title: "A Comparison of Road Grade Preview Signals from Lidar and Maps"
+      authors: "<strong>L. Schexnaydre</strong>, A. Poovalappil, D. Robinette, J. Bos"
+      venue: "arXiv preprint arXiv:2511.02006"
+      year: 2025
+      link: "https://arxiv.org/abs/2511.02006"
+      badges:
+        - first
+        - Accepted to SAE WCX
+
+    - title: "Using Automated Vehicle Positioning to Improve Efficiency in Vehicle Platooning"
+      authors: "<strong>L. Schexnaydre</strong>, A. Poovalappil, M. Schmelzle, D. Robinette, J.P. Bos"
+      venue: "Proc. SPIE — Autonomous Systems: Sensors, Processing, and Security for Ground, Air, Sea, and Space Vehicles and Infrastructure"
+      year: 2023
+      link: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=tPcoJDkAAAAJ&citation_for_view=tPcoJDkAAAAJ:u5HHmVD_uO8C"
+      badges:
+        - first
+
+    - title: "On-Road Investigation of Energy Saving Opportunity for Autonomous Light-Duty Vehicles through Automated Vehicle-Following in Safe Distance Scenarios"
+      authors: "A. Poovalappil, A. Robare, <strong>L. Schexnaydre</strong>, P. Santhosh, M. Bahramgiri, et al."
+      venue: "SAE Technical Paper"
+      year: 2025
+      link: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=tPcoJDkAAAAJ&citation_for_view=tPcoJDkAAAAJ:d1gkVwhDpl0C"
+
+    - title: "Red vs Infrared: Comparing 900&thinsp;nm and 1550&thinsp;nm Lidar Performance in Arctic Winter Conditions"
+      authors: "I.Q. Mattson, <strong>L. Schexnaydre</strong>, J.P. Bos"
+      venue: "Proc. SPIE — Laser Communication and Propagation through the Atmosphere and Oceans XIV"
+      year: 2025
+      link: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=tPcoJDkAAAAJ&citation_for_view=tPcoJDkAAAAJ:9yKSN-GCB0IC"
+
+    - title: "Facilitating Project-Based Learning through Application of Established Pedagogical Methods in the SAE AutoDrive Challenge Student Design Competition"
+      authors: "M.H. Schmelzle, <strong>L. Schexnaydre</strong>, N. Spike, D. Robinette, J. Bos"
+      venue: "SAE Technical Paper"
+      year: 2024
+      link: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=tPcoJDkAAAAJ&citation_for_view=tPcoJDkAAAAJ:u-x6o8ySG0sC"
 
 # ── Projects section ──────────────────────────────────────────────────────────
 projects:
   heading: "Research &amp; Initiatives"
   items:
+    - name: "ARPA-E NEXTCAR - Sensing and Processing"
+      image: "images/nextcar_ram.png"
+      desc: >-
+        I implemented lidar processing algorithms for automated vehicle following and road surface profiling tasks. 
+        This work supported the program goal of achieving a 20% reduction in autonomous vehicle energy consumption.
+      link: "https://arpa-e.energy.gov/programs-and-initiatives/search-all-projects/hybrid-electric-vehicle-platooning-control"
+      link_text: "View Project Description"
+
     - name: "AutoDrive Challenge II"
+      image: "images/ADII_banner.png"
+      image_alt: "AutoDrive Challenge II team banner"
       desc: >-
         A collegiate autonomous vehicle competition hosted by General Motors and SAE.
         I mentored undergraduate students in perception, simulation, systems engineering, and testing. Our team has recieved nine awards in design and dynamic challenges.
@@ -72,7 +129,9 @@ projects:
       link: "https://arxiv.org/abs/2511.02006"
       link_text: "Read preprint"
 
-    - name: "Arctic Lidar Performance Study"
+    - name: "Adverse Weather Assessment of Lidar"
+      image: "images/car_snow.jpg"
+      image_alt: "Image of experiment setup for assessing position estimation performance in snow"
       desc: >-
         Evaluated 900&thinsp;nm and 1550&thinsp;nm lidar sensor performance under real arctic
         winter conditions including snow, fog, and low-visibility scenarios relevant to
@@ -80,44 +139,42 @@ projects:
       link: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=tPcoJDkAAAAJ&citation_for_view=tPcoJDkAAAAJ:9yKSN-GCB0IC"
       link_text: "View publication"
 
+    - name: "Robotics and Automation Society - Michigan Tech Student Branch"
+      image: "images/ras_maze.png"
+      desc: >-
+        Acted as Vice Chair in the first semester of the MTU RAS student branch chapter.
+        Organized lab tours and path planning hackathon for undergraduate and graduate robotics students.
+      link: "https://www.ieee-ras.org/"
+      link_text: "Robotics and Automation Society Page"
+
 # ── Research vision section ───────────────────────────────────────────────────
 vision:
   heading: "Research Vision"
   paragraphs:
     - >-
-      I am actively seeking postdoctoral and faculty positions beginning in 2026–2027,
+      I am actively seeking postdoctoral-level positions beginning in 2026–2027,
       with a focus on autonomous systems, sustainable transportation, and sensing &amp;
-      perception. My near-term goal is to extend the lidar and sensor fusion methods
-      developed during my PhD toward a broader class of energy-critical applications —
+      processing. My near-term goal is to extend the lidar and sensor fusion methods
+      developed during my PhD toward a broader class of energy-critical applications,
       systems where robust, low-latency sensing directly translates to reduced resource
       consumption or improved safety outcomes.
     - >-
       In parallel, I am interested in developing a research agenda at the intersection
-      of robust perception and human health. The same pipeline engineering that enables
-      a vehicle to perceive road grade in a snowstorm has structural analogues in
-      medical sensing: detecting subtle signals in noisy environments, fusing
-      heterogeneous modalities, and operating reliably at the edge. I see a genuine
-      opportunity to bridge these domains, and I am looking for environments — national
-      labs, R1/R2 research universities — that support that kind of cross-disciplinary
-      ambition.
+      of robust perception and human health. The same uncertainty modeling used in autonomous vehicles
+      can be applied to medical sensing: detecting subtle signals in noisy environments, fusing
+      heterogeneous modalities, and operating reliably at the edge. I see an 
+      opportunity to bridge these domains, and I am looking for environments that support interdisciplinary applications.
     - >-
-      I am particularly drawn to institutions and groups where sustainability is not
-      just a framing device but a genuine research priority: reducing emissions through
-      intelligent logistics, enabling energy-efficient mobility in underserved or
-      extreme-climate regions, and building autonomous systems that earn public trust
-      through transparency and measured performance. If your work touches any of these
-      areas, I would be glad to connect.
+      I am drawn to institutions where sustainability is a
+      research priority. If your work relates to this area or any of my interests, I would be glad to connect.
   tags:
-    - "Postdoctoral positions"
-    - "R1/R2 faculty (tenure-track)"
-    - "National labs (NREL, Argonne, Oak Ridge)"
-    - "Start date: 2026–2027"
+    # - "Start date: 2026–2027"
 
 # ── Contact section ───────────────────────────────────────────────────────────
 contact:
-  tagline: >-
-    I am actively seeking postdoctoral and faculty positions for 2026–2027.
-    Please feel free to reach out.
+  #tagline: >-
+  #  I am actively seeking postdoctoral and faculty positions for 2026–2027.
+  #  Please feel free to reach out.
 
 # ── Footer ────────────────────────────────────────────────────────────────────
 footer:
