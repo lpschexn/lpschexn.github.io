@@ -1,0 +1,124 @@
+# ──────────────────────────────────────────────────────────────────────────────
+# Editable content for index.html
+# Edit the values below to update the text on the site.
+# After editing, commit and push — GitHub Pages will rebuild automatically.
+# ──────────────────────────────────────────────────────────────────────────────
+
+# ── Hero ──────────────────────────────────────────────────────────────────────
+hero:
+  name: "Logan Schexnaydre"
+  pronouns: "(he/him)"
+  # Shown in blue below the name
+  title: "PhD Candidate"
+  # Keywords shown below the title as plain text
+  keywords: "Stochastic Modeling &middot; Autonomous Sensing &middot; Sustainable Computing"
+  institution: "Michigan Technological University"
+  department: "Dept. of Electrical &amp; Computer Engineering"
+  graduation: "Graduating Summer 2026"
+  email: "lpschexn@mtu.edu"
+
+# ── Research section ──────────────────────────────────────────────────────────
+research:
+  heading: "What I Work On"
+  paragraphs:
+    - >-
+      Autonomous vehicles have the potential to reduce transportation energy consumption
+      through more efficient driving. Yet, achieving those gains require sensing that is
+      precise in highway driving scenarios and all weather conditions. My research focuses
+      on evaluating the ability for lidar sensing and processing systems to achieve significant
+      energy savings, a benefit to the driver and to the national energy infrastructure.
+    - >-
+      Concretely, I investigate how lidar-derived road grade previews can replace or
+      augment map-based inputs to vehicle energy management systems, and I have evaluated
+      900&nbsp;nm versus 1550&nbsp;nm lidar performance under real arctic winter conditions
+      — the kind of empirical, hardware-grounded work that bridges sensor physics and
+      system-level autonomy. These studies are conducted on public roads and test tracks
+      in the Upper Peninsula of Michigan, where the environment provides natural stress
+      tests unavailable in warmer climates.
+    - >-
+      The larger goal is a class of autonomous vehicles that are not just capable but
+      measurably more sustainable: systems that preview road geometry to minimize
+      unnecessary acceleration, that platoon safely to cut aerodynamic drag, and that
+      degrade gracefully when sensors are partially obscured. Looking ahead, I am
+      interested in extending these perception and sensor fusion methods into
+      sustainability-focused applications and, eventually, medical and biomedical
+      sensing — where the same rigor applied to detecting road features must be applied
+      to detecting physiological ones.
+  keywords:
+    - "Lidar Processing"
+    - "Autonomous Vehicles"
+    - "Vehicle Platooning"
+    - "Energy Efficiency"
+    - "Sensor Fusion"
+    - "Arctic Sensing"
+    - "Road Grade Estimation"
+
+# ── Projects section ──────────────────────────────────────────────────────────
+projects:
+  heading: "Research &amp; Initiatives"
+  items:
+    - name: "AutoDrive Challenge II"
+      desc: >-
+        A collegiate autonomous vehicle competition hosted by General Motors and SAE.
+        I mentored undergraduate students in perception, simulation, systems engineering, and testing. Our team has recieved nine awards in design and dynamic challenges.
+      link: "https://rse-mtu.vercel.app/"
+      link_text: "Visit project"
+
+    - name: "Lidar-Based Road Grade Preview for Energy Management"
+      desc: >-
+        Developed and evaluated lidar-derived road grade signals as real-time inputs to
+        vehicle energy management systems. Compared lidar-based grade preview against
+        map-based approaches for accuracy and latency in dynamic driving conditions.
+      link: "https://arxiv.org/abs/2511.02006"
+      link_text: "Read preprint"
+
+    - name: "Arctic Lidar Performance Study"
+      desc: >-
+        Evaluated 900&thinsp;nm and 1550&thinsp;nm lidar sensor performance under real arctic
+        winter conditions including snow, fog, and low-visibility scenarios relevant to
+        autonomous operation in northern climates.
+      link: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=tPcoJDkAAAAJ&citation_for_view=tPcoJDkAAAAJ:9yKSN-GCB0IC"
+      link_text: "View publication"
+
+# ── Research vision section ───────────────────────────────────────────────────
+vision:
+  heading: "Research Vision"
+  paragraphs:
+    - >-
+      I am actively seeking postdoctoral and faculty positions beginning in 2026–2027,
+      with a focus on autonomous systems, sustainable transportation, and sensing &amp;
+      perception. My near-term goal is to extend the lidar and sensor fusion methods
+      developed during my PhD toward a broader class of energy-critical applications —
+      systems where robust, low-latency sensing directly translates to reduced resource
+      consumption or improved safety outcomes.
+    - >-
+      In parallel, I am interested in developing a research agenda at the intersection
+      of robust perception and human health. The same pipeline engineering that enables
+      a vehicle to perceive road grade in a snowstorm has structural analogues in
+      medical sensing: detecting subtle signals in noisy environments, fusing
+      heterogeneous modalities, and operating reliably at the edge. I see a genuine
+      opportunity to bridge these domains, and I am looking for environments — national
+      labs, R1/R2 research universities — that support that kind of cross-disciplinary
+      ambition.
+    - >-
+      I am particularly drawn to institutions and groups where sustainability is not
+      just a framing device but a genuine research priority: reducing emissions through
+      intelligent logistics, enabling energy-efficient mobility in underserved or
+      extreme-climate regions, and building autonomous systems that earn public trust
+      through transparency and measured performance. If your work touches any of these
+      areas, I would be glad to connect.
+  tags:
+    - "Postdoctoral positions"
+    - "R1/R2 faculty (tenure-track)"
+    - "National labs (NREL, Argonne, Oak Ridge)"
+    - "Start date: 2026–2027"
+
+# ── Contact section ───────────────────────────────────────────────────────────
+contact:
+  tagline: >-
+    I am actively seeking postdoctoral and faculty positions for 2026–2027.
+    Please feel free to reach out.
+
+# ── Footer ────────────────────────────────────────────────────────────────────
+footer:
+  copyright: "&copy; 2026 Logan Schexnaydre"

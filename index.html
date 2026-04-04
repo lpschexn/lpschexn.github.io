@@ -1,3 +1,6 @@
+---
+layout: none
+---
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
@@ -188,6 +191,13 @@
       font-weight: 500;
       margin-top: 0.4rem;
       margin-bottom: 0.5rem;
+    }
+    .hero-keywords {
+      font-size: clamp(0.85rem, 2vw, 1rem);
+      color: var(--text-muted);
+      font-weight: 400;
+      margin-top: 0.2rem;
+      margin-bottom: 1rem;
     }
     .hero-inst {
       font-size: 0.92rem;
@@ -587,14 +597,15 @@
     <div class="hero-inner">
       <div class="hero-text">
         <h1>
-          Logan Schexnaydre
-          <span class="hero-pronouns">(he/him)</span>
+          {{ site.data.content.hero.name }}
+          <span class="hero-pronouns">{{ site.data.content.hero.pronouns }}</span>
         </h1>
-        <p class="hero-title">PhD Candidate &middot; Autonomous Sensing &amp; Sustainable Computing</p>
+        <p class="hero-title">{{ site.data.content.hero.title }}</p>
+        <p class="hero-keywords">{{ site.data.content.hero.keywords }}</p>
         <p class="hero-inst">
-          <strong>Michigan Technological University</strong><br>
-          Dept. of Electrical &amp; Computer Engineering<br>
-          Graduating Summer 2026
+          <strong>{{ site.data.content.hero.institution }}</strong><br>
+          {{ site.data.content.hero.department }}<br>
+          {{ site.data.content.hero.graduation }}
         </p>
         <div class="hero-cta">
           <a href="files/CV_Logan_Schexnaydre.pdf" class="btn btn-primary" target="_blank" rel="noopener">
@@ -602,7 +613,7 @@
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
             Download CV
           </a>
-          <a href="mailto:[YOUR_EMAIL]" class="btn btn-outline">
+          <a href="mailto:{{ site.data.content.hero.email }}" class="btn btn-outline">
             <!-- mail icon -->
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
             Email Me
@@ -635,46 +646,17 @@
   <section id="research" aria-labelledby="research-heading">
     <div class="container reveal">
       <p class="section-label">Research</p>
-      <h2 class="section-title" id="research-heading">What I Work On</h2>
+      <h2 class="section-title" id="research-heading">{{ site.data.content.research.heading }}</h2>
       <div class="section-divider" aria-hidden="true"></div>
       <div class="research-body">
-        <p>
-          Autonomous vehicles hold enormous potential for reducing transportation energy
-          consumption through optimized driving behavior — but realizing those gains requires
-          sensing systems that remain reliable in exactly the conditions where they are most
-          needed: winter weather, low visibility, and high-speed highway environments. My
-          research addresses this gap directly, building lidar-based perception pipelines
-          that enable safe vehicle following and platooning while treating energy efficiency
-          as a first-class design constraint.
-        </p>
-        <p>
-          Concretely, I investigate how lidar-derived road grade previews can replace or
-          augment map-based inputs to vehicle energy management systems, and I have evaluated
-          900&nbsp;nm versus 1550&nbsp;nm lidar performance under real arctic winter conditions
-          — the kind of empirical, hardware-grounded work that bridges sensor physics and
-          system-level autonomy. These studies are conducted on public roads and test tracks
-          in the Upper Peninsula of Michigan, where the environment provides natural stress
-          tests unavailable in warmer climates.
-        </p>
-        <p>
-          The larger goal is a class of autonomous vehicles that are not just capable but
-          measurably more sustainable: systems that preview road geometry to minimize
-          unnecessary acceleration, that platoon safely to cut aerodynamic drag, and that
-          degrade gracefully when sensors are partially obscured. Looking ahead, I am
-          interested in extending these perception and sensor fusion methods into
-          sustainability-focused applications and, eventually, medical and biomedical
-          sensing — where the same rigor applied to detecting road features must be applied
-          to detecting physiological ones.
-        </p>
+        {% for para in site.data.content.research.paragraphs %}
+        <p>{{ para }}</p>
+        {% endfor %}
       </div>
       <div class="research-keywords" aria-label="Research keywords">
-        <span class="kw">Lidar Perception</span>
-        <span class="kw">Autonomous Vehicles</span>
-        <span class="kw">Vehicle Platooning</span>
-        <span class="kw">Energy Efficiency</span>
-        <span class="kw">Sensor Fusion</span>
-        <span class="kw">Arctic Sensing</span>
-        <span class="kw">Road Grade Estimation</span>
+        {% for kw in site.data.content.research.keywords %}
+        <span class="kw">{{ kw }}</span>
+        {% endfor %}
       </div>
     </div>
   </section>
@@ -791,7 +773,7 @@
   <section id="projects" aria-labelledby="projects-heading">
     <div class="container reveal">
       <p class="section-label">Projects</p>
-      <h2 class="section-title" id="projects-heading">Research &amp; Initiatives</h2>
+      <h2 class="section-title" id="projects-heading">{{ site.data.content.projects.heading }}</h2>
       <div class="section-divider" aria-hidden="true"></div>
       <div class="project-grid">
 
@@ -801,14 +783,10 @@
             <img src="images/ADII_banner.png" alt="Autonomous Driving Intelligence Initiative banner" loading="lazy" />
           </div>
           <div class="project-body">
-            <h3 class="project-name">Autonomous Driving Intelligence Initiative (ADII)</h3>
-            <p class="project-desc">
-              A collaborative research initiative at Michigan Tech developing and testing autonomous
-              vehicle perception and decision systems. Contributed to lidar sensing pipelines,
-              vehicle-following algorithms, and on-road energy efficiency testing.
-            </p>
-            <a href="https://rse-mtu.vercel.app/" class="project-link" target="_blank" rel="noopener">
-              Visit project
+            <h3 class="project-name">{{ site.data.content.projects.items[0].name }}</h3>
+            <p class="project-desc">{{ site.data.content.projects.items[0].desc }}</p>
+            <a href="{{ site.data.content.projects.items[0].link }}" class="project-link" target="_blank" rel="noopener">
+              {{ site.data.content.projects.items[0].link_text }}
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </a>
           </div>
@@ -831,14 +809,10 @@
             </div>
           </div>
           <div class="project-body">
-            <h3 class="project-name">Lidar-Based Road Grade Preview for Energy Management</h3>
-            <p class="project-desc">
-              Developed and evaluated lidar-derived road grade signals as real-time inputs to
-              vehicle energy management systems. Compared lidar-based grade preview against
-              map-based approaches for accuracy and latency in dynamic driving conditions.
-            </p>
-            <a href="https://arxiv.org/abs/2511.02006" class="project-link" target="_blank" rel="noopener">
-              Read preprint
+            <h3 class="project-name">{{ site.data.content.projects.items[1].name }}</h3>
+            <p class="project-desc">{{ site.data.content.projects.items[1].desc }}</p>
+            <a href="{{ site.data.content.projects.items[1].link }}" class="project-link" target="_blank" rel="noopener">
+              {{ site.data.content.projects.items[1].link_text }}
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </a>
           </div>
@@ -863,14 +837,10 @@
             </div>
           </div>
           <div class="project-body">
-            <h3 class="project-name">Arctic Lidar Performance Study</h3>
-            <p class="project-desc">
-              Evaluated 900&thinsp;nm and 1550&thinsp;nm lidar sensor performance under real arctic
-              winter conditions including snow, fog, and low-visibility scenarios relevant to
-              autonomous operation in northern climates.
-            </p>
-            <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=tPcoJDkAAAAJ&citation_for_view=tPcoJDkAAAAJ:9yKSN-GCB0IC" class="project-link" target="_blank" rel="noopener">
-              View publication
+            <h3 class="project-name">{{ site.data.content.projects.items[2].name }}</h3>
+            <p class="project-desc">{{ site.data.content.projects.items[2].desc }}</p>
+            <a href="{{ site.data.content.projects.items[2].link }}" class="project-link" target="_blank" rel="noopener">
+              {{ site.data.content.projects.items[2].link_text }}
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </a>
           </div>
@@ -884,54 +854,21 @@
   <section id="vision" aria-labelledby="vision-heading">
     <div class="container reveal">
       <p class="section-label">Looking Ahead</p>
-      <h2 class="section-title" id="vision-heading">Research Vision</h2>
+      <h2 class="section-title" id="vision-heading">{{ site.data.content.vision.heading }}</h2>
       <div class="section-divider" aria-hidden="true"></div>
       <div class="vision-inner">
         <div class="vision-body">
-          <p>
-            I am actively seeking postdoctoral and faculty positions beginning in 2026–2027,
-            with a focus on autonomous systems, sustainable transportation, and sensing &amp;
-            perception. My near-term goal is to extend the lidar and sensor fusion methods
-            developed during my PhD toward a broader class of energy-critical applications —
-            systems where robust, low-latency sensing directly translates to reduced resource
-            consumption or improved safety outcomes.
-          </p>
-          <p>
-            In parallel, I am interested in developing a research agenda at the intersection
-            of robust perception and human health. The same pipeline engineering that enables
-            a vehicle to perceive road grade in a snowstorm has structural analogues in
-            medical sensing: detecting subtle signals in noisy environments, fusing
-            heterogeneous modalities, and operating reliably at the edge. I see a genuine
-            opportunity to bridge these domains, and I am looking for environments — national
-            labs, R1/R2 research universities — that support that kind of cross-disciplinary
-            ambition.
-          </p>
-          <p>
-            I am particularly drawn to institutions and groups where sustainability is not
-            just a framing device but a genuine research priority: reducing emissions through
-            intelligent logistics, enabling energy-efficient mobility in underserved or
-            extreme-climate regions, and building autonomous systems that earn public trust
-            through transparency and measured performance. If your work touches any of these
-            areas, I would be glad to connect.
-          </p>
+          {% for para in site.data.content.vision.paragraphs %}
+          <p>{{ para }}</p>
+          {% endfor %}
         </div>
         <div class="vision-tags" aria-label="Target position types">
+          {% for tag in site.data.content.vision.tags %}
           <span class="vtag">
             <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-            Postdoctoral positions
+            {{ tag }}
           </span>
-          <span class="vtag">
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-            R1/R2 faculty (tenure-track)
-          </span>
-          <span class="vtag">
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-            National labs (NREL, Argonne, Oak Ridge)
-          </span>
-          <span class="vtag">
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-            Start date: 2026–2027
-          </span>
+          {% endfor %}
         </div>
       </div>
     </div>
@@ -943,12 +880,9 @@
       <p class="section-label">Contact</p>
       <h2 class="section-title" id="contact-heading">Get in Touch</h2>
       <div class="section-divider" aria-hidden="true"></div>
-      <p class="contact-tagline">
-        I am actively seeking postdoctoral and faculty positions for 2026–2027.
-        Please feel free to reach out.
-      </p>
+      <p class="contact-tagline">{{ site.data.content.contact.tagline }}</p>
       <div class="contact-links">
-        <a href="mailto:[YOUR_EMAIL]" class="btn btn-primary">
+        <a href="mailto:{{ site.data.content.hero.email }}" class="btn btn-primary">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
           Email Me
         </a>
@@ -971,8 +905,7 @@
   <!-- ══════════════ FOOTER ══════════════ -->
   <footer>
     <p>
-      &copy; 2026 Logan Schexnaydre &middot;
-      Michigan Technological University &middot;
+      {{ site.data.content.footer.copyright }} &middot;
       <a href="https://github.com/lpschexn" target="_blank" rel="noopener">GitHub</a> &middot;
       <a href="files/CV_Logan_Schexnaydre.pdf" target="_blank" rel="noopener">CV</a>
     </p>
