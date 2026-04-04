@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'erb'
+
 group :jekyll_plugins do
   gem 'jekyll'
   gem 'jekyll-feed'
