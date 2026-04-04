@@ -33,27 +33,25 @@ research:
     - >-
       Autonomous vehicles have the potential to reduce transportation energy consumption
       through more efficient driving. Yet, achieving those gains require sensing that is
-      precise in dynamic driving and weather scenarios. My dissertation work focuses on evaluating 
+      precise in dynamic driving and weather scenarios. My current work focuses on evaluating 
       lidar sensing and processing systems in these scenarios. Understanding the effect of these sensing architectures
       enables engineers to make informed decisions about their autonomous vehicle's fuel economy.
     - >-
       I have implemented stochastic models to connect measurement and estimation uncertainty of 
       lidar and processing algorithms the energy saved during automated vehicle following in clear
-      and adverse weather while under computational constraints.
+      and adverse weather while under computational constraints. Additionally, I have demonstrated
+      that automotive lidar can measure the grade of a road surface in advance of traversal, enabling
+      control systems to perform energy-efficient actuation.
     - >-
-      The larger goal is a class of autonomous vehicles that are not just capable but
-      measurably more sustainable: systems that preview road geometry to minimize
-      unnecessary acceleration, that platoon safely to cut aerodynamic drag, and that
-      degrade gracefully when sensors are partially obscured. Looking ahead, I am
-      interested in extending these perception and sensor fusion methods into
-      sustainability-focused applications and, eventually, medical and biomedical
-      sensing — where the same rigor applied to detecting road features must be applied
-      to detecting physiological ones.
+      I conducted this research as part of the Robust Autonomous Systems Laboratory. I have supported 
+      several other programs and projects related to sensing and autonomy during
+      my time at Michigan Tech.
   keywords:
     - "Lidar Processing"
     - "Autonomous Vehicles"
     - "Stochastic Modeling"
     - "Energy Efficiency"
+    - "Sustainability"
     - "Sensor Fusion"
     - "Arctic Sensing"
 
@@ -117,7 +115,8 @@ projects:
       image_alt: "AutoDrive Challenge II team banner"
       desc: >-
         A collegiate autonomous vehicle competition hosted by General Motors and SAE.
-        I mentored undergraduate students in perception, simulation, systems engineering, and testing. Our team has recieved nine awards in design and dynamic challenges.
+        I mentored undergraduate students in simulation, perception, localization, and systems engineering. 
+        Our team has recieved nine awards in design and dynamic challenges over five years.
       link: "https://rse-mtu.vercel.app/"
       link_text: "Visit project"
 
@@ -129,15 +128,16 @@ projects:
       link: "https://arxiv.org/abs/2511.02006"
       link_text: "Read preprint"
 
-    - name: "Adverse Weather Assessment of Lidar"
+    - name: "Adverse Weather Assessment of Automotive Lidar"
       image: "images/car_snow.jpg"
       image_alt: "Image of experiment setup for assessing position estimation performance in snow"
       desc: >-
-        Evaluated 900&thinsp;nm and 1550&thinsp;nm lidar sensor performance under real arctic
-        winter conditions including snow, fog, and low-visibility scenarios relevant to
-        autonomous operation in northern climates.
-      link: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=tPcoJDkAAAAJ&citation_for_view=tPcoJDkAAAAJ:9yKSN-GCB0IC"
-      link_text: "View publication"
+        Evaluated the precision of lidar measurements in the arctic winter conditions 
+        of Michigan's Upper Peninsula. Developed model to characterize the effect of
+        residual clutter on object position estimation algorithms.
+
+      link: ""
+      link_text: ""
 
     - name: "Robotics and Automation Society - Michigan Tech Student Branch"
       image: "images/ras_maze.png"
