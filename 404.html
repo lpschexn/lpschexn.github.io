@@ -1,0 +1,153 @@
+---
+permalink: /404.html
+sitemap: false
+---
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page Not Found — Logan Schexnaydre</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:          #f8f7f4;
+      --bg-alt:      #f1efe9;
+      --text:        #1a1a18;
+      --text-muted:  #5c5c56;
+      --text-subtle: #8a8a82;
+      --accent:      #2563a8;
+      --border:      #e4e2da;
+      --transition:  0.22s ease;
+    }
+    [data-theme="dark"] {
+      --bg:          #12120f;
+      --bg-alt:      #181815;
+      --text:        #eeeee8;
+      --text-muted:  #a8a8a0;
+      --text-subtle: #6a6a64;
+      --accent:      #60a5fa;
+      --border:      #2e2e28;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      height: 100%;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      transition: background 0.22s ease, color 0.22s ease;
+    }
+    .container { max-width: 480px; }
+    .code {
+      font-size: clamp(5rem, 20vw, 8rem);
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+    h1 {
+      font-family: 'Lora', serif;
+      font-size: clamp(1.25rem, 4vw, 1.75rem);
+      font-weight: 400;
+      margin-bottom: 0.75rem;
+    }
+    p {
+      color: var(--text-muted);
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+    a.btn {
+      display: inline-block;
+      padding: 0.625rem 1.5rem;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: opacity 0.18s ease;
+    }
+    a.btn:hover { opacity: 0.85; }
+    .theme-toggle {
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      cursor: pointer;
+      width: 44px;
+      height: 24px;
+      position: relative;
+      transition: background var(--transition), border-color var(--transition);
+      flex-shrink: 0;
+    }
+    .theme-toggle::after {
+      content: '';
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--accent);
+      transition: transform var(--transition), background var(--transition);
+    }
+    [data-theme="dark"] .theme-toggle::after { transform: translateX(20px); }
+    .theme-toggle-wrap {
+      position: fixed;
+      top: 1.25rem;
+      right: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .theme-label {
+      font-size: 0.75rem;
+      color: var(--text-subtle);
+      user-select: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="theme-toggle-wrap">
+    <span class="theme-label" id="theme-label" aria-hidden="true">Day</span>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle day/night mode" role="switch" aria-checked="false"></button>
+  </div>
+
+  <div class="container">
+    <div class="code">404</div>
+    <h1>Page not found</h1>
+    <p>The page you're looking for doesn't exist or has been moved.</p>
+    <a href="/" class="btn">Go home</a>
+  </div>
+
+  <script>
+    const html = document.documentElement;
+    const btn  = document.getElementById('theme-toggle');
+    const lbl  = document.getElementById('theme-label');
+
+    function setTheme(dark) {
+      html.setAttribute('data-theme', dark ? 'dark' : 'light');
+      btn.setAttribute('aria-checked', dark ? 'true' : 'false');
+      lbl.textContent = dark ? 'Night' : 'Day';
+      try { localStorage.setItem('theme', dark ? 'dark' : 'light'); } catch(e) {}
+    }
+
+    (function() {
+      let saved = null;
+      try { saved = localStorage.getItem('theme'); } catch(e) {}
+      setTheme(saved === 'dark');
+    })();
+
+    btn.addEventListener('click', () => {
+      setTheme(html.getAttribute('data-theme') !== 'dark');
+    });
+  </script>
+</body>
+</html>
