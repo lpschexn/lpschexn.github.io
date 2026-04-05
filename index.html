@@ -693,7 +693,7 @@ layout: none
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
             Download CV
           </a>
-          <a href="mailto:{{ site.data.content.hero.email }}" class="btn btn-outline">
+          <a href="#" class="btn btn-outline email-link" data-u="{{ site.data.content.hero.email | split: '@' | first }}" data-d="{{ site.data.content.hero.email | split: '@' | last }}">
             <!-- mail icon -->
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
             Email Me
@@ -877,7 +877,7 @@ layout: none
       <div class="section-divider" aria-hidden="true"></div>
       <p class="contact-tagline">{{ site.data.content.contact.tagline }}</p>
       <div class="contact-links">
-        <a href="mailto:{{ site.data.content.hero.email }}" class="btn btn-primary">
+        <a href="#" class="btn btn-primary email-link" data-u="{{ site.data.content.hero.email | split: '@' | first }}" data-d="{{ site.data.content.hero.email | split: '@' | last }}">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
           Email Me
         </a>
@@ -929,6 +929,11 @@ layout: none
 
     btn.addEventListener('click', () => {
       setTheme(html.getAttribute('data-theme') !== 'dark');
+    });
+
+    // ── Email obfuscation ──
+    document.querySelectorAll('a.email-link').forEach(a => {
+      a.href = 'mailto:' + a.dataset.u + '@' + a.dataset.d;
     });
 
     // ── Gallery carousel ──
