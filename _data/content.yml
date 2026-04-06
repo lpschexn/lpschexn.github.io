@@ -159,21 +159,19 @@ vision:
   heading: "Research Vision"
   paragraphs:
     - >-
-      I am actively seeking postdoctoral-level positions beginning in 2026–2027,
-      with a focus on autonomous systems, sustainable transportation, and sensing &amp;
-      processing. My near-term goal is to extend the lidar and sensor fusion methods
-      developed during my PhD toward a broader class of energy-critical applications,
-      systems where robust, low-latency sensing directly translates to reduced resource
-      consumption or improved safety outcomes.
-    - >-
+      I am actively seeking postdoctoral-level positions with a focus on autonomous systems, 
+      sustainable transportation, and sensing &amp; processing. My near-term goal is to 
+      continue the work of using robust, low-latency sensing and stochastic modeling for a more 
+      general class of energy-critical applications to reduce resource consumption or improve safety outcomes.
+#    - >-
       In parallel, I am interested in developing a research agenda at the intersection
-      of robust perception and human health. The same uncertainty modeling used in autonomous vehicles
-      can be applied to medical sensing: detecting subtle signals in noisy environments, fusing
-      heterogeneous modalities, and operating reliably at the edge. I see an 
-      opportunity to bridge these domains, and I am looking for environments that support interdisciplinary applications.
+      of robust perception and human health. I see an opportunity to bridge these domains,
+      #The same uncertainty modeling used in autonomous vehicles
+      #can be applied to medical sensing: detecting subtle signals in noisy environments, fusing
+      #heterogeneous modalities, and operating reliably at the edge. 
+      and I am looking for environments that support interdisciplinary applications.
     - >-
-      I am drawn to institutions where sustainability is a
-      research priority. If your work relates to this area or any of my interests, I would be glad to connect.
+      If your work relates to this sustainability or any of my interests, I would be glad to connect.
   tags:
     # - "Start date: 2026–2027"
 
