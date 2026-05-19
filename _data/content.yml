@@ -73,9 +73,9 @@ publications:
 
     - title: "A Comparison of Road Grade Preview Signals from Lidar and Maps"
       authors: "<strong>L. Schexnaydre</strong>, A. Poovalappil, D. Robinette, J. Bos"
-      venue: "arXiv preprint arXiv:2511.02006"
-      year: 2025
-      link: "<strong>Accepted to SAE WCX</strong>https://arxiv.org/abs/2511.02006"
+      venue: "SAE World Congress Experience 2026"
+      year: 2026
+      link: "https://saemobilus.sae.org/papers/a-comparison-road-grade-preview-signals-lidar-maps-2026-01-0026"
       badges:
 #        - first
 
@@ -86,6 +86,12 @@ publications:
       link: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=tPcoJDkAAAAJ&citation_for_view=tPcoJDkAAAAJ:u5HHmVD_uO8C"
       badges:
 #        - first
+
+    - title: "Can We Get There Faster: Tuning Sample-based Path Planners"
+      authors: "C. Cornwall, C. Majhor, <strong>L. Schexnaydre</strong>, I. Mattson, J. P. Bos"
+      venue: "IEEE Robotics and Automation Letters"
+      year: 2026
+      link: "https://ieeexplore.ieee.org/abstract/document/11488552"
 
     - title: "On-Road Investigation of Energy Saving Opportunity for Autonomous Light-Duty Vehicles through Automated Vehicle-Following in Safe Distance Scenarios"
       authors: "A. Poovalappil, A. Robare, <strong>L. Schexnaydre</strong>, P. Santhosh, M. Bahramgiri, et al."
@@ -99,11 +105,11 @@ publications:
 #      year: 2025
 #      link: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=tPcoJDkAAAAJ&citation_for_view=tPcoJDkAAAAJ:9yKSN-GCB0IC"
 
-    - title: "Facilitating Project-Based Learning through Application of Established Pedagogical Methods in the SAE AutoDrive Challenge Student Design Competition"
-      authors: "M.H. Schmelzle, <strong>L. Schexnaydre</strong>, N. Spike, D. Robinette, J. Bos"
-      venue: "SAE Technical Paper"
-      year: 2024
-      link: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=tPcoJDkAAAAJ&citation_for_view=tPcoJDkAAAAJ:u-x6o8ySG0sC"
+#    - title: "Facilitating Project-Based Learning through Application of Established Pedagogical Methods in the SAE AutoDrive Challenge Student Design Competition"
+#      authors: "M.H. Schmelzle, <strong>L. Schexnaydre</strong>, N. Spike, D. Robinette, J. Bos"
+#      venue: "SAE Technical Paper"
+#      year: 2024
+#      link: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=tPcoJDkAAAAJ&citation_for_view=tPcoJDkAAAAJ:u-x6o8ySG0sC"
 
 # ── Projects section ──────────────────────────────────────────────────────────
 projects:
