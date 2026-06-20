@@ -134,6 +134,7 @@ projects:
       link_text: "Visit project"
 
     - name: "Lidar-Based Road Grade Preview for Energy Management"
+      image: "images/road_grade.jpg"
       desc: >-
         Developed and evaluated lidar-derived road grade signals as real-time inputs to
         vehicle energy management systems. Compared lidar-based grade preview against
@@ -142,13 +143,12 @@ projects:
       link_text: "Read preprint"
 
     - name: "Adverse Weather Assessment of Automotive Lidar"
-      image: "images/car_snow.jpg"
+      image: "images/car_snow.png"
       image_alt: "Image of experiment setup for assessing position estimation performance in snow"
       desc: >-
         Evaluated the precision of lidar measurements in the arctic winter conditions 
         of Michigan's Upper Peninsula. Developed model to characterize the effect of
         residual clutter on object position estimation algorithms.
-
       link: ""
       link_text: ""
 
@@ -158,7 +158,16 @@ projects:
         Acted as Vice Chair in the first semester of the MTU RAS student branch chapter.
         Organized lab tours and path planning hackathon for undergraduate and graduate robotics students.
       link: "https://www.ieee-ras.org/"
-      link_text: "Robotics and Automation Society Page"
+      link_text: "Robotics and Automation Society"
+
+    - name: "Comparing Statistical and Machine Learning Lidar Snow Filters"
+      image: "images/lidar_snow.png"
+      desc: >-
+        Implemented, trained, and tested WeatherNet, a neural network lidar snow filter,
+        and compared it to statistical approaches. Completed for a graduate machine learning course.
+      link: "https://github.com/lpschexn/weathernet_cnn"
+      link_text: "GitHub Repository and Report"
+      
 
 # ── Research vision section ───────────────────────────────────────────────────
 vision:
@@ -181,7 +190,7 @@ vision:
 # ── Contact section ───────────────────────────────────────────────────────────
 contact:
   #tagline: >-
-  #  I am actively seeking postdoctoral and faculty positions for 2026–2027.
+  #  I am actively seeking postdoctoral positions for 2026–2027.
   #  Please feel free to reach out.
 
 # ── Footer ────────────────────────────────────────────────────────────────────
